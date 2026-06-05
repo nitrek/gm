@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitesh Singh | Portfolio</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: #ffffff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
+            color: white;
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        header .subtitle {
+            font-size: 1.3rem;
+            color: #90cdf4;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        header .contact-meta {
+            font-size: 0.95rem;
+            color: #cbd5e0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        header a {
+            color: #90cdf4;
+            text-decoration: none;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Grid Framework for Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--light);
+            padding: 1.25rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Timeline for Experience */
+        .timeline-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .job-company {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .job-duration {
+            font-size: 0.9rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .job-desc {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 0.75rem;
+        }
+
+        .bullet-list {
+            padding-left: 1.25rem;
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+        }
+
+        /* Grid for Awards / Education */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+            gap: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0f172a;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .job-meta { flex-direction: column; }
+            .info-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Kept clean for simple setup */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Nitesh Singh</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education & More</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header id="about">
+        <div class="hero-content">
+            <h1>NITESH SINGH</h1>
+            <div class="subtitle">Senior Associate Director / Principal Engineer (Individual Contributor)</div>
+            <div class="contact-meta">
+                <span>📍 Pune, Maharashtra, India</span>
+                <span>📞 +91-8288838038</span>
+                <span>✉️ <a href="mailto:nitesh.ns19@gmail.com">nitesh.ns19@gmail.com</a></span>
+                <span>🔗 <a href="https://linkedin.com/in/niteshsingh19" target="_blank">LinkedIn</a></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- EXECUTIVE SUMMARY -->
+        <section>
+            <div class="section-title">Professional Summary</div>
+            <p style="text-align: justify; color: #4a5568;">
+                Highly accomplished, metrics-driven Engineering Leader and Principal Individual Contributor with over 10 years of enterprise experience building high-scale FinTech, Cloud-Native, and Distributed Systems at **HSBC**. Expert in architecting low-latency trading platforms, infrastructure-as-code automation, multi-tenant Kubernetes environments, and frontier AI implementations[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span). Proven track record of engineering high-availability banking infrastructures handling **20M+ daily transactions**, eliminating production incidents entirely, and delivering **$1B+ in regulatory capital savings** alongside **$700K+ in annual infrastructure cost reductions**[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span).
+            </p>
+        </section>
+
+        <!-- SKILLS SECTIONS -->
+        <section id="skills">
+            <div class="section-title">Core Technical Stack</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <p>Java (11, 17, 21, 25), Python, Go, C++, SQL, TypeScript, Kotlin[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span)</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Cloud & Platforms</h4>
+                    <p>Kubernetes, Google Cloud Platform (GCP), AWS[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Architecture</h4>
+                    <p>Low-Latency Microservices, Event-Driven, Spring Boot, ProtoBuf, Kafka, SSE[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span)</p>
+                </div>
+                <div class="skill-category">
+                    <h4>AI & Frontier Tech</h4>
+                    <p>Generative AI / LLMs (OpenAI, Gemini), Agentic Workflows, Corda Blockchain, Ethereum[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="section-title">Professional Experience</div>
+
+            <div class="timeline-item">
+                <div class="job-meta">
+                    <div>
+                        <span class="job-title">Senior Associate Director (Principal IC)</span> 
+                        <span class="job-company">@ HSBC</span>
+                    </div>
+                    <span class="job-duration">March 2026 – Present</span>
+                </div>
+                <div class="job-desc"><em>Global Application Hosting & Strategic AI Architecture</em>[span_12](start_span)[span_12](end_span)</div>
+                <ul class="bullet-list">
+                    <li><strong>Next-Gen Enterprise Platform (NEXA):</strong> Spearheading core architecture of a strategic, internal Kubernetes platform targeting 80% of application workloads bank-wide[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span).</li>
+                    <li><strong>Strategic AI Pilots:</strong> Leading foundational development for Agentic AI pilots within HSBC Technology India using OpenAI and Gemini architectures[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span).</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-meta">
+                    <div>
+                        <span class="job-title">Associate Director – Software Engineering</span> 
+                        <span class="job-company">@ HSBC</span>
+                    </div>
+                    <span class="job-duration">April 2025 – March 2026</span>
+                </div>
+                <div class="job-desc"><em>Fixed Income & Low-Latency Trading Platforms</em>[span_17](start_span)[span_17](end_span)</div>
+                <ul class="bullet-list">
+                    <li><strong>Line Pricer Platform:</strong> Architected a mission-critical platform using the Atlas framework to compute sub-millisecond pricing for Bonds, IRS, and CDS[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span).</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-meta">
+                    <div>
+                        <span class="job-title">Lead Consultant Specialist (Vice President)</span> 
+                        <span class="job-company">@ HSBC</span>
+                    </div>
+                    <span class="job-duration">May 2023 – April 2025</span>
+                </div>
+                <div class="job-desc"><em>Global Risk Systems & Cloud Platforms</em>[span_20](start_span)[span_20](end_span)</div>
+                <ul class="bullet-list">
+                    <li><strong>Risk Bucket Store:</strong> Global Delivery Lead for high-throughput system processing 20M+ daily transactions with zero production incidents over 3 years[span_21](start_span)[span_21](end_span)[span_22](start_span)[span_22](end_span).</li>
+                    <li><strong>Financial Impact:</strong> Delivered $1B+ in structural capital savings via automated regulatory reporting layers (Basel IV, FRTB)[span_23](start_span)[span_23](end_span)[span_24](start_span)[span_24](end_span).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EDUCATION & CERTIFICATIONS -->
+        <section id="education">
+            <div class="info-grid">
+                <div>
+                    <div class="section-title">Education</div>
+                    <p><strong>Thapar Institute of Engineering and Technology</strong><br>
+                    B.Tech in Computer Engineering (CGPA: 8.51 / 10.0)<br>
+                    <small style="color:#718096;">Graduated 2016</small></p>[span_25](start_span)[span_25](end_span)[span_26](start_span)[span_26](end_span)
+                </div>
+                <div>
+                    <div class="section-title">Key Credentials</div>
+                    <ul class="bullet-list" style="list-style: none; padding: 0;">
+                        <li>☁️ Google Cloud Certified Professional Cloud Architect[span_27](start_span)[span_27](end_span)[span_28](start_span)[span_28](end_span)</li>
+                        <li>🤖 HSBC Certified Enterprise Engineer & AI Ambassador[span_29](start_span)[span_29](end_span)[span_30](start_span)[span_30](end_span)</li>
+                        <li>🔗 R3 Corda Certified Blockchain Developer[span_31](start_span)[span_31](end_span)[span_32](start_span)[span_32](end_span)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nitesh Singh. Built for high performance.</p>
+    </footer>
+
+</body>
+</html>
