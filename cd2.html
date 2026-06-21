@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wedding Countdown</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Georgia", serif;
+}
+
+body{
+    background:#f9f3eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+    background:#fffaf4;
+    border-radius:30px;
+    padding:50px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* watercolor paper texture */
+.container::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,220,210,0.3), transparent 20%),
+        radial-gradient(circle at 80% 80%, rgba(255,220,210,0.25), transparent 20%);
+    opacity:.8;
+    z-index:0;
+}
+
+.content{
+    position:relative;
+    z-index:2;
+}
+
+/* flowers */
+.flower{
+    position:absolute;
+    font-size:90px;
+    opacity:.4;
+}
+
+.fl1{ top:20px; left:30px; }
+.fl2{ top:20px; right:30px; }
+.fl3{ bottom:20px; left:30px; }
+.fl4{ bottom:20px; right:30px; }
+
+h1{
+    text-align:center;
+    font-size:4rem;
+    color:#8b5e4b;
+    font-weight:500;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:1.3rem;
+    margin-top:10px;
+    color:#a17667;
+}
+
+.date{
+    text-align:center;
+    margin:30px 0;
+    font-size:2rem;
+    color:#7d5a4d;
+}
+
+.countdown-box{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.card{
+    width:170px;
+    height:170px;
+    border-radius:25px;
+    background:#fff;
+    border:2px solid #f0ddd1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.04);
+}
+
+.number{
+    font-size:4rem;
+    color:#bc7f72;
+    font-weight:bold;
+}
+
+.label{
+    margin-top:8px;
+    font-size:1rem;
+    letter-spacing:3px;
+    color:#9b7d72;
+}
+
+/* doodle couple */
+.doodle{
+    position:absolute;
+    bottom:40px;
+    left:50px;
+    width:180px;
+    opacity:.95;
+}
+
+.doodle img{
+    width:100%;
+    border-radius:20px;
+}
+
+/* string lights */
+.lights{
+    position:absolute;
+    top:10px;
+    width:100%;
+    text-align:center;
+    font-size:28px;
+    opacity:.6;
+}
+
+@media(max-width:768px){
+    h1{
+        font-size:2.4rem;
+    }
+    .card{
+        width:130px;
+        height:130px;
+    }
+    .number{
+        font-size:2.7rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="flower fl1">🌸</div>
+    <div class="flower fl2">🌷</div>
+    <div class="flower fl3">🌹</div>
+    <div class="flower fl4">🌼</div>
+
+    <div class="lights">✨ • ♡ • ✨ • ♡ • ✨</div>
+
+    <div class="content">
+        <h1>Wedding Countdown</h1>
+        <div class="subtitle">From then till forever ♡</div>
+        <div class="date">📅 19 Jan 2027</div>
+
+        <div class="countdown-box">
+            <div class="card">
+                <div class="number" id="days">00</div>
+                <div class="label">DAYS</div>
+            </div>
+
+            <div class="card">
+                <div class="number" id="hours">00</div>
+                <div class="label">HOURS</div>
+            </div>
+
+            <div class="card">
+                <div class="number" id="minutes">00</div>
+                <div class="label">MINUTES</div>
+            </div>
+
+            <div class="card">
+                <div class="number" id="seconds">00</div>
+                <div class="label">SECONDS</div>
+            </div>
+        </div>
+
+        <!-- replace with your doodle cartoon image -->
+        <div class="doodle">
+            <img src="your-doodle.png" alt="Our Doodle"/>
+        </div>
+    </div>
+</div>
+
+<script>
+const weddingDate = new Date("January 19, 2027 00:00:00").getTime();
+
+function updateCountdown(){
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
