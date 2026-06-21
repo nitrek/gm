@@ -1,0 +1,142 @@
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- paper texture -->
+    <filter id="paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/>
+      <feColorMatrix values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 .04 0"/>
+    </filter>
+
+    <!-- soft shadow -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="#f9f3eb"/>
+  <rect width="1080" height="1350" filter="url(#paper)" opacity=".15"/>
+
+  <!-- Floral Corners -->
+  <text x="60" y="100" font-size="70">🌸</text>
+  <text x="950" y="100" font-size="70">🌷</text>
+  <text x="60" y="1260" font-size="70">🌹</text>
+  <text x="950" y="1260" font-size="70">🌼</text>
+
+  <!-- String lights -->
+  <path d="M120 80 Q540 20 960 80" stroke="#d8b9a6" fill="none" stroke-width="3"/>
+  <circle cx="200" cy="65" r="8" fill="#f4d8b2"/>
+  <circle cx="350" cy="45" r="8" fill="#f4d8b2"/>
+  <circle cx="540" cy="35" r="8" fill="#f4d8b2"/>
+  <circle cx="730" cy="45" r="8" fill="#f4d8b2"/>
+  <circle cx="880" cy="65" r="8" fill="#f4d8b2"/>
+
+  <!-- Title -->
+  <text x="540" y="190"
+        text-anchor="middle"
+        font-size="68"
+        fill="#8b5e4b"
+        font-family="Georgia">
+    Wedding Countdown
+  </text>
+
+  <text x="540" y="250"
+        text-anchor="middle"
+        font-size="28"
+        fill="#b27f6d"
+        font-family="Georgia">
+    From then till forever ♡
+  </text>
+
+  <!-- Date -->
+  <text x="540" y="340"
+        text-anchor="middle"
+        font-size="38"
+        fill="#8d6759">
+    19 Jan 2027
+  </text>
+
+  <!-- Timer Card -->
+  <rect x="160" y="410"
+        width="760"
+        height="250"
+        rx="40"
+        fill="#fffaf5"
+        stroke="#eadccf"
+        stroke-width="3"
+        filter="url(#shadow)"/>
+
+  <!-- Timer Sections -->
+  <line x1="350" y1="450" x2="350" y2="620" stroke="#eadccf"/>
+  <line x1="540" y1="450" x2="540" y2="620" stroke="#eadccf"/>
+  <line x1="730" y1="450" x2="730" y2="620" stroke="#eadccf"/>
+
+  <!-- Days -->
+  <text id="days" x="255" y="535"
+        text-anchor="middle"
+        font-size="84"
+        fill="#bc7f72">185</text>
+  <text x="255" y="595"
+        text-anchor="middle"
+        font-size="22"
+        fill="#9b7d72">DAYS</text>
+
+  <!-- Hours -->
+  <text id="hours" x="445" y="535"
+        text-anchor="middle"
+        font-size="84"
+        fill="#bc7f72">20</text>
+  <text x="445" y="595"
+        text-anchor="middle"
+        font-size="22"
+        fill="#9b7d72">HOURS</text>
+
+  <!-- Minutes -->
+  <text id="minutes" x="635" y="535"
+        text-anchor="middle"
+        font-size="84"
+        fill="#bc7f72">48</text>
+  <text x="635" y="595"
+        text-anchor="middle"
+        font-size="22"
+        fill="#9b7d72">MINUTES</text>
+
+  <!-- Seconds -->
+  <text id="seconds" x="825" y="535"
+        text-anchor="middle"
+        font-size="84"
+        fill="#bc7f72">43</text>
+  <text x="825" y="595"
+        text-anchor="middle"
+        font-size="22"
+        fill="#9b7d72">SECONDS</text>
+
+  <!-- Doodle Couple Placeholder -->
+  <g transform="translate(270,760)">
+    <circle cx="120" cy="120" r="65" fill="#e9c9b7"/>
+    <circle cx="300" cy="120" r="65" fill="#f1d8ca"/>
+
+    <rect x="70" y="180" width="110" height="180" rx="30" fill="#3e4f68"/>
+    <rect x="250" y="180" width="110" height="180" rx="30" fill="#dfe8f0"/>
+
+    <text x="210" y="420"
+          text-anchor="middle"
+          font-size="32"
+          fill="#9b7d72">
+      Our doodles here ♡
+    </text>
+  </g>
+
+  <!-- Bottom decor -->
+  <text x="540" y="1240"
+        text-anchor="middle"
+        font-size="28"
+        fill="#a97e6b">
+    forever starts in...
+  </text>
+
+</svg>
