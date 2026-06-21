@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Countdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfaf4;
+            --text-main: #6e5241;
+            --text-accent: #9e7a66;
+            --border-color: #decbbf;
+            --heart-color: #b58d78;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            /* Soft watercolor texture feel via gradient background */
+            background-image: radial-gradient(#f7f1e6 1px, transparent 1px), radial-gradient(#f7f1e6 1px, var(--bg-color) 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            font-family: 'Lora', serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .countdown-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(110, 82, 65, 0.05);
+            border: 1px solid rgba(222, 203, 191, 0.3);
+            position: relative;
+        }
+
+        /* Decorative header typography */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-accent);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle::before, .subtitle::after {
+            content: " ♡ ";
+            font-style: normal;
+            color: var(--heart-color);
+        }
+
+        /* Target Date Display */
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 35px;
+            color: var(--text-main);
+        }
+
+        .date-badge svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-main);
+        }
+
+        /* The Live Countdown Box */
+        .timer-box {
+            border: 2px dashed var(--border-color);
+            border-radius: 20px;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: rgba(255, 253, 249, 0.9);
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+        }
+
+        .time-segment {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time-number {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 10px;
+            min-width: 70px;
+        }
+
+        .time-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--text-accent);
+            text-transform: uppercase;
+        }
+
+        .divider-heart {
+            color: var(--heart-color);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            padding-bottom: 25px;
+        }
+
+        /* Bottom Row Simulation (Books, Note, Coffee) */
+        .bottom-decor {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .decor-item {
+            font-size: 0.9rem;
+            color: var(--text-accent);
+            font-style: italic;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 3.2rem; }
+            .timer-box { flex-direction: column; gap: 20px; padding: 20px; }
+            .divider-heart { display: none; }
+            .time-number { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="countdown-card">
+        <h1>Wedding Countdown</h1>
+        <div class="subtitle">From then till forever</div>
+
+        <div class="date-badge">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+            <span>19 Jan 2027</span>
+        </div>
+
+        <div class="timer-box">
+            <div class="time-segment">
+                <div class="time-number" id="months">00</div>
+                <div class="time-label">Months</div>
+            </div>
+            
+            <div class="divider-heart">♡</div>
+
+            <div class="time-segment">
+                <div class="time-number" id="days">00</div>
+                <div class="time-label">Days</div>
+            </div>
+
+            <div class="divider-heart">♡</div>
+
+            <div class="time-segment">
+                <div class="time-number" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+
+            <div class="divider-heart">♡</div>
+
+            <div class="time-segment">
+                <div class="time-number" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+
+            <div class="divider-heart">♡</div>
+
+            <div class="time-segment">
+                <div class="time-number" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
+
+        <div class="bottom-decor">
+            <span class="decor-item">Our Story ♡</span>
+            <span class="decor-item">Better Together ♡</span>
+            <span class="decor-item">Here's to our greatest adventure...</span>
+        </div>
+    </div>
+
+    <script>
+        // Set your target wedding date here
+        const targetDate = new Date("2027-01-19T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.querySelector(".timer-box").innerHTML = "<h2>The Big Day Has Arrived! ✨</h2>";
+                clearInterval(timerInterval);
+                return;
+            }
+
+            // Math conversions for traditional Days/Hours/Mins/Secs
+            const totalSeconds = Math.floor(difference / 1000);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const totalDays = Math.floor(totalHours / 24);
+
+            // Break calculation down into Calendar Months + Remaining Days
+            // Approximate calculation for dynamic month display (avg 30.44 days per month)
+            const calculatedMonths = Math.floor(totalDays / 30.44);
+            const remainingDays = Math.floor(totalDays % 30.44);
+            
+            const remainingHours = totalHours % 24;
+            const remainingMinutes = totalMinutes % 60;
+            const remainingSeconds = totalSeconds % 60;
+
+            // Inject numbers into DOM with zero-padding (e.g. 05 instead of 5)
+            document.getElementById("months").innerText = String(calculatedMonths).padStart(2, '0');
+            document.getElementById("days").innerText = String(remainingDays).padStart(2, '0');
+            document.getElementById("hours").innerText = String(remainingHours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(remainingMinutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(remainingSeconds).padStart(2, '0');
+        }
+
+        // Run immediately on load, then update every single second
+        updateCountdown();
+        const timerInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
